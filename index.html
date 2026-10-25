@@ -700,6 +700,95 @@ html[data-theme="dark"] .theme i{background:var(--royal)}
 .swipe .swipe-act{position:absolute;right:0;top:0;bottom:0;width:62px;display:grid;place-items:center;background:var(--copper);color:#fff;font-size:7px;font-weight:600;line-height:1.25;text-align:center;padding:0 4px;box-shadow:-8px 0 14px -10px rgba(17,19,24,.5)}
 .swipe .hrow{position:relative;background:var(--white);transform:translateX(-62px);border-bottom:0;padding-left:71px;padding-right:6px}
 
+/* ---------- v4 wealth (自选页 + 持仓页 结构) ---------- */
+/* 头部：大金额 + 眼睛开关 */
+.wtop{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:1px 2px 0}
+.wtop .wl{font:500 6.6px var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.wbig{display:flex;align-items:baseline;gap:1px;margin-top:3px;font-weight:600;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.wbig .int{font-size:26px}
+.wbig .dec{font-size:14px;color:var(--ink2)}
+.wbig.hide .int,.wbig.hide .dec{letter-spacing:.04em}
+.wpl{text-align:right;flex:0 0 auto;padding-top:2px}
+.wpl b{display:block;font-size:11px;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.wpl small{display:block;font-size:6.6px;color:var(--muted);margin-top:2px}
+.eyebtn{width:22px;height:22px;border-radius:50%;background:var(--fill);display:grid;place-items:center;color:var(--ink2);flex:0 0 auto}
+.eyebtn .ic{width:12px;height:12px}
+
+/* 分类 tab + 滑动指示条 */
+.wtabs{display:flex;align-items:center;gap:2px;position:relative;padding:0 0 1px;border-bottom:1px solid var(--rule)}
+.wtabs .tb{font-size:8.6px;font-weight:500;color:var(--muted);padding:5px 7px 4px;white-space:nowrap}
+.wtabs .tb.on{color:var(--royal);font-weight:650}
+.wtabs .ind{position:absolute;bottom:-1px;height:1.6px;border-radius:2px;background:var(--royal);left:7px;width:26px;transition:transform .35s cubic-bezier(.2,.7,.2,1),width .35s cubic-bezier(.2,.7,.2,1)}
+.wtabs .tb-manage{margin-left:auto;color:var(--muted);display:grid;place-items:center;padding:0 3px}
+.wtabs .tb-manage .ic{width:12px;height:12px}
+
+/* 产品行：logo + sparkline + 涨跌角标 */
+.plist{border-radius:14px;background:var(--white);border:1px solid var(--line);overflow:hidden}
+.prow2{display:flex;align-items:center;gap:7px;padding:6px 9px;border-bottom:1px solid var(--rule)}
+.prow2:last-child{border-bottom:0}
+.plogo{width:24px;height:24px;border-radius:9px;flex:0 0 auto;display:grid;place-items:center;font:650 8px var(--sans);color:#fff;letter-spacing:-.02em}
+.plogo.b{background:linear-gradient(145deg,#3438E4,#171A99)}
+.plogo.c{background:linear-gradient(145deg,#C87E4B,#8E532F)}
+.plogo.k{background:#23262E}
+.pmain{flex:1;min-width:0}
+.pname{display:flex;align-items:center;gap:4px;font-size:9.2px;font-weight:600;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pname .mtag{height:12px;padding:0 4px;border-radius:3px;font-size:5.8px;font-weight:650;display:inline-flex;align-items:center;flex:0 0 auto;background:var(--copper-soft);color:var(--copper-deep)}
+.pname .mtag.blue{background:var(--royal-soft);color:var(--royal)}
+.pmeta2{display:block;font-size:6.6px;color:var(--muted);margin-top:1px;font-variant-numeric:tabular-nums}
+.pspark{width:48px;height:19px;flex:0 0 auto;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.pchg{flex:0 0 auto;text-align:right;min-width:52px}
+.chg{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:16px;padding:0 5px;border-radius:4px;color:#fff;font:650 7.8px var(--sans);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.chg.up{background:var(--gain)}
+.chg.down{background:var(--loss)}
+.pchg small{display:block;font-size:6.4px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+
+/* 板块 chips：角标收纳 + 展开 */
+.sectbar{display:flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;background:var(--white);border:1px solid var(--rule);font-size:8px;font-weight:600;color:var(--ink2);width:max-content}
+.sectbar .ic{width:11px;height:11px;color:var(--copper-deep)}
+.sectbar .cnt{color:var(--muted);font-weight:500}
+.sectbar .cv{color:var(--muted);font-size:7px;margin-left:1px}
+.chipsbox{overflow:hidden;height:0;opacity:0;transition:height .3s ease,opacity .3s ease}
+.chipsbox.open{height:auto}
+.chipsrow{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding:1px 0 0}
+.chipsrow::-webkit-scrollbar{display:none}
+.chipsrow + .chipsrow{margin-top:5px}
+.chip2{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 9px;border-radius:999px;background:var(--white);border:1px solid var(--rule);font-size:7.8px;color:var(--ink2);white-space:nowrap;flex:0 0 auto}
+.chip2 .ic{width:10px;height:10px;color:var(--royal)}
+.chip2.hot .ic{color:var(--copper-deep)}
+
+/* 横滑面板（tab 联动） */
+.panels{display:flex;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x mandatory}
+.panels::-webkit-scrollbar{display:none}
+.panelx{flex:0 0 100%;scroll-snap-align:start;min-width:0}
+
+/* 营销过渡 banner */
+.mbanner{display:flex;align-items:center;gap:8px;padding:8px 11px;border-radius:14px;background:linear-gradient(135deg,#F7EEE5 0%,#FBF6F0 100%);border:1px solid rgba(178,107,62,.22)}
+.mbanner .mbic{width:26px;height:26px;border-radius:9px;background:linear-gradient(145deg,#C87E4B,#8E532F);display:grid;place-items:center;color:#fff;flex:0 0 auto}
+.mbanner .mbic .ic{width:13px;height:13px}
+.mbanner b{display:block;font-size:9.2px;font-weight:650;color:var(--copper-deep);letter-spacing:-.01em}
+.mbanner small{display:block;font-size:6.8px;color:var(--muted);margin-top:1px}
+.mbanner .go{margin-left:auto;font-size:7.4px;font-weight:650;color:var(--copper-deep);white-space:nowrap;flex:0 0 auto}
+
+/* 分区资产卡：2×3 指标网格 */
+.agrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px 4px;margin-top:7px;padding-top:7px;border-top:1px solid var(--rule)}
+.agrid div{display:flex;flex-direction:column;gap:1px;min-width:0}
+.agrid span{font-size:6.4px;color:var(--muted);display:flex;align-items:center;gap:2px}
+.agrid span .ic{width:8px;height:8px;opacity:.6}
+.agrid b{font-size:9px;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+/* 趋势图周期选择 */
+.cycles{display:flex;gap:9px;margin-top:4px;padding:0 1px;overflow-x:auto;scrollbar-width:none}
+.cycles::-webkit-scrollbar{display:none}
+.cycles span{font-size:7px;color:var(--muted);white-space:nowrap;padding-bottom:2px;border-bottom:1.4px solid transparent;flex:0 0 auto}
+.cycles span.on{color:var(--ink);font-weight:650;border-bottom-color:var(--ink)}
+
+/* 快捷操作行 */
+.quick{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding:1px 0}
+.quick::-webkit-scrollbar{display:none}
+.quick span{display:inline-flex;align-items:center;gap:4px;height:25px;padding:0 10px;border-radius:999px;background:var(--white);border:1px solid var(--rule);font-size:7.6px;font-weight:500;color:var(--ink2);white-space:nowrap;flex:0 0 auto}
+.quick span .ic{width:10px;height:10px;color:var(--royal)}
+.quick span .r3{font-size:6.2px;color:var(--copper-deep);font-weight:650}
+
 /* ---------- v3 profile ---------- */
 .phead{display:flex;align-items:center;gap:10px;padding:2px 1px 0}
 .pav{width:42px;height:42px;border-radius:50%;background:linear-gradient(145deg,#3438E4,#171A99);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:650;box-shadow:0 10px 18px -12px rgba(23,26,153,.8);flex:0 0 auto}
@@ -1631,50 +1720,132 @@ html[data-theme="dark"] .cta.ghost{background:var(--white)}
             <!-- 07 wealth -->
             <figure class="screen-card">
               <div class="phone">
-                <div class="screen" role="img" aria-label="新版理财页：总资产与昨日收益、资产增长面积图、时间粒度分段控件、我的持仓与自选关注">
+                <div class="screen" role="img" aria-label="新版理财页：上半为自选列表（总资产、分类 tab、产品行、板块 chips），下半为持仓面板（分区资产卡、趋势图、快捷操作、我的持仓）">
                   <div class="island" aria-hidden="true"></div>
                   <div class="sbar"><span>9:41</span><span class="sbicons" aria-hidden="true"><i class="sig"></i><i class="wifi"></i><i class="batt"></i></span></div>
-                  <div class="nav large"><span></span><span class="navtitle">理财</span><span class="act">⋯</span></div>
+                  <div class="nav large"><span></span><span class="navtitle">理财</span><span class="act">搜索</span></div>
                   <div class="body scroll">
                     <div class="lt"><b>理财</b></div>
 
-                    <div class="riskbar"><span>风险测评</span><b>R3 稳健型</b><span>· 有效期至 2027-03</span><span class="retest">重测 ›</span></div>
+                    <!-- ═══ 上半部分 · 自选页结构（图一）═══ -->
+                    <div class="wtop">
+                      <div>
+                        <span class="wl">投资总资产 · CNY</span>
+                        <div class="wbig"><span class="int">128,560</span><span class="dec">.30</span></div>
+                      </div>
+                      <div style="display:flex;align-items:flex-start;gap:6px">
+                        <div class="wpl"><b class="up">+236.18</b><small>持仓盈亏 +0.18%</small></div>
+                        <span class="eyebtn"><svg class="ic"><use href="#i-eye"/></svg></span>
+                      </div>
+                    </div>
 
+                    <div class="wtabs">
+                      <span class="tb on">全部</span><span class="tb">持仓</span><span class="tb">活期</span><span class="tb">稳健</span><span class="tb">基金</span>
+                      <span class="tb-manage"><svg class="ic"><use href="#i-swap"/></svg></span>
+                      <span class="ind"></span>
+                    </div>
+
+                    <div class="panels">
+                      <div class="panelx">
+                        <div class="plist">
+                          <div class="prow2">
+                            <span class="plogo b">稳</span>
+                            <div class="pmain"><div class="pname">稳健增利 <span class="mtag">热销</span></div><small class="pmeta2">R3 · 净值 1.1284</small></div>
+                            <svg class="pspark" viewBox="0 0 48 19" aria-hidden="true"><path d="M1 15 7 13 13 14 19 10 25 11 31 7 37 8 47 3" stroke="#C6433C"/></svg>
+                            <div class="pchg"><span class="chg up">+2.46%</span><small>1.1284 · +0.027</small></div>
+                          </div>
+                          <div class="prow2">
+                            <span class="plogo c">现</span>
+                            <div class="pmain"><div class="pname">现金管理 <span class="mtag blue">新客</span></div><small class="pmeta2">R1 · 净值 1.0000</small></div>
+                            <svg class="pspark" viewBox="0 0 48 19" aria-hidden="true"><path d="M1 14 7 14 13 12 19 13 25 10 31 11 37 8 47 7" stroke="#C6433C"/></svg>
+                            <div class="pchg"><span class="chg up">+0.82%</span><small>1.0000 · +0.008</small></div>
+                          </div>
+                          <div class="prow2">
+                            <span class="plogo b">债</span>
+                            <div class="pmain"><div class="pname">优选债基</div><small class="pmeta2">R2 · 净值 1.0462</small></div>
+                            <svg class="pspark" viewBox="0 0 48 19" aria-hidden="true"><path d="M1 5 7 7 13 6 19 10 25 9 31 12 37 11 47 14" stroke="#2F7D5F"/></svg>
+                            <div class="pchg"><span class="chg down">−1.82%</span><small>1.0462 · −0.019</small></div>
+                          </div>
+                          <div class="prow2">
+                            <span class="plogo k">红</span>
+                            <div class="pmain"><div class="pname">中证红利</div><small class="pmeta2">R3 · 净值 1.2846</small></div>
+                            <svg class="pspark" viewBox="0 0 48 19" aria-hidden="true"><path d="M1 13 7 12 13 13 19 9 25 10 31 6 37 7 47 2" stroke="#C6433C"/></svg>
+                            <div class="pchg"><span class="chg up">+1.34%</span><small>1.2846 · +0.017</small></div>
+                          </div>
+                          <div class="prow2">
+                            <span class="plogo c">金</span>
+                            <div class="pmain"><div class="pname">黄金积存</div><small class="pmeta2">R4 · 元/克 612.40</small></div>
+                            <svg class="pspark" viewBox="0 0 48 19" aria-hidden="true"><path d="M1 12 7 14 13 11 19 13 25 8 31 9 37 5 47 6" stroke="#C6433C"/></svg>
+                            <div class="pchg"><span class="chg up">+0.64%</span><small>612.40 · +3.90</small></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="sectbar"><svg class="ic"><use href="#i-spark"/></svg>板块 <span class="cnt">· 8</span><span class="cv">▸</span></span>
+                    <div class="chipsbox">
+                      <div class="chipsrow">
+                        <span class="chip2"><svg class="ic"><use href="#i-shield"/></svg>国债逆回购</span>
+                        <span class="chip2"><svg class="ic"><use href="#i-wallet"/></svg>同业存单</span>
+                        <span class="chip2 hot"><svg class="ic"><use href="#i-spark"/></svg>黄金</span>
+                        <span class="chip2"><svg class="ic"><use href="#i-chart"/></svg>指数基金</span>
+                      </div>
+                      <div class="chipsrow">
+                        <span class="chip2 hot"><svg class="ic"><use href="#i-plus"/></svg>新客专享</span>
+                        <span class="chip2"><svg class="ic"><use href="#i-clock"/></svg>短期理财</span>
+                        <span class="chip2"><svg class="ic"><use href="#i-snow"/></svg>固收+</span>
+                        <span class="chip2"><svg class="ic"><use href="#i-lock"/></svg>养老目标</span>
+                      </div>
+                    </div>
+
+                    <!-- ═══ 过渡 · 营销 banner ═══ -->
+                    <div class="mbanner">
+                      <span class="mbic"><svg class="ic"><use href="#i-spark"/></svg></span>
+                      <div><b>新客理财专享</b><small>7 日年化最高 3.85% · 1 元起购</small></div>
+                      <span class="go">›</span>
+                    </div>
+
+                    <!-- ═══ 下半部分 · 持仓页结构（图二）═══ -->
                     <div class="wcard">
-                      <span class="wlbl">Total assets · 总资产</span>
+                      <span class="wl">理财总资产（CNY）</span>
                       <div class="wamt"><span class="int">128,560</span><span class="dec">.30</span></div>
-                      <div class="wyest"><span>昨日收益</span><b class="up">+236.18</b><span class="pill copper" style="height:16px;font-size:6.4px">+0.18%</span></div>
-                      <div class="wpills">
-                        <span class="pill blue">累计收益 +8,560.30</span>
-                        <span class="pill" style="background:var(--royal-soft);color:var(--royal)">持有收益率 +7.13%</span>
+                      <div class="agrid">
+                        <div><span>今日盈亏</span><b class="up">+236.18</b></div>
+                        <div><span>持仓盈亏</span><b class="up">+8,560.30</b></div>
+                        <div><span>可用余额</span><b>12,340.00</b></div>
+                        <div><span>持仓市值</span><b>117,000.00</b></div>
+                        <div><span>在途资金<svg class="ic"><use href="#i-clock"/></svg></span><b>1,220.30</b></div>
+                        <div><span>昨日收益</span><b class="up">+198.42</b></div>
                       </div>
                     </div>
 
                     <div class="chartwrap">
                       <svg viewBox="0 0 280 66" preserveAspectRatio="none" aria-hidden="true">
                         <defs>
-                          <linearGradient id="wealthFill" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0" stop-color="#2A2ED8" stop-opacity=".16"/>
-                            <stop offset="1" stop-color="#2A2ED8" stop-opacity="0"/>
+                          <linearGradient id="wealthFill4" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#B26B3E" stop-opacity=".18"/>
+                            <stop offset="1" stop-color="#B26B3E" stop-opacity="0"/>
                           </linearGradient>
                         </defs>
-                        <path d="M0 52 18 48 36 50 54 43 72 45 90 38 108 41 126 33 144 36 162 27 180 30 198 21 216 24 234 14 252 17 270 8 280 6 V66 H0Z" fill="url(#wealthFill)"/>
-                        <path d="M0 52 18 48 36 50 54 43 72 45 90 38 108 41 126 33 144 36 162 27 180 30 198 21 216 24 234 14 252 17 270 8 280 6" fill="none" stroke="#2A2ED8" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
-                        <line x1="198" y1="4" x2="198" y2="66" stroke="#B26B3E" stroke-width=".8" stroke-dasharray="2 2"/>
-                        <circle cx="198" cy="21" r="3" fill="#2A2ED8" stroke="#fff" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+                        <path d="M0 52 18 48 36 50 54 43 72 45 90 38 108 41 126 33 144 36 162 27 180 30 198 21 216 24 234 14 252 17 270 8 280 6 V66 H0Z" fill="url(#wealthFill4)"/>
+                        <path d="M0 52 18 48 36 50 54 43 72 45 90 38 108 41 126 33 144 36 162 27 180 30 198 21 216 24 234 14 252 17 270 8 280 6" fill="none" stroke="#B26B3E" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+                        <line x1="198" y1="4" x2="198" y2="66" stroke="#2A2ED8" stroke-width=".8" stroke-dasharray="2 2"/>
+                        <circle cx="198" cy="21" r="3" fill="#B26B3E" stroke="#fff" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
                         <rect x="163" y="1" width="70" height="16" rx="5" fill="#171A99"/>
                         <text x="198" y="11.5" text-anchor="middle" font-size="6.2" fill="#fff" font-family="ui-monospace,monospace">10-18 · ¥127,980</text>
                       </svg>
                       <div class="axis"><span>09-26</span><span>10-05</span><span>10-15</span><span>10-25</span></div>
-                      <div class="seg ios"><span class="on">近 1 月</span><span>近 3 月</span><span>近 1 年</span></div>
-                      <div class="three">
-                        <div><b class="up">+8,560.30</b><span>持有收益</span></div>
-                        <div><b class="up">+12,480.60</b><span>累计收益</span></div>
-                        <div><b class="royal">+2.4%</b><span>总资产环比</span></div>
-                      </div>
+                      <div class="cycles"><span>1月</span><span>3月</span><span>6月</span><span>年初至今</span><span class="on">1年</span><span>3年</span></div>
                     </div>
 
-                    <div class="ghead"><b>我的持仓</b><span>全部持仓 ›</span></div>
+                    <div class="quick">
+                      <span><svg class="ic"><use href="#i-bill"/></svg>我的订单</span>
+                      <span><svg class="ic"><use href="#i-swap"/></svg>定投专区</span>
+                      <span><svg class="ic"><use href="#i-chart"/></svg>收益明细</span>
+                      <span><svg class="ic"><use href="#i-shield"/></svg>风险测评<span class="r3">R3 · 2027-03</span></span>
+                    </div>
+
+                    <div class="ghead"><b>我的持仓 (2)</b><span>排序 ⇅ · 全部持仓 ›</span></div>
                     <div class="glist">
                       <div class="hrow">
                         <div class="hmain"><div class="hname">稳健增利 <span class="pill r">R3</span></div><small class="hmeta">42,000.00 · 占比 35%</small></div>
@@ -1685,26 +1856,6 @@ html[data-theme="dark"] .cta.ghost{background:var(--white)}
                         <div class="hmain"><div class="hname">现金管理 <span class="pill r">R1</span></div><small class="hmeta">56,000.00 · 占比 46%</small></div>
                         <svg class="sparkline" viewBox="0 0 38 15" aria-hidden="true"><path d="M1 11 7 11 13 9 19 10 25 7 31 8 37 6" stroke="#C6433C"/></svg>
                         <div class="hval"><b>56,000.00</b><small class="up">+12.40</small></div>
-                      </div>
-                      <div class="hrow">
-                        <div class="hmain"><div class="hname">优选债基 <span class="pill r">R2</span></div><small class="hmeta">19,000.00 · 占比 16%</small></div>
-                        <svg class="sparkline" viewBox="0 0 38 15" aria-hidden="true"><path d="M1 4 7 6 13 5 19 9 25 8 31 11 37 10" stroke="#2F7D5F"/></svg>
-                        <div class="hval"><b>19,000.00</b><small class="down">−8.72</small></div>
-                      </div>
-                    </div>
-
-                    <div class="ghead"><b>自选关注</b><span>左滑移出 · 2</span></div>
-                    <div class="glist">
-                      <div class="hrow">
-                        <div class="hmain"><div class="hname">中证红利 <span class="pill r">R3</span></div><small class="hmeta">最新净值 · 10-25</small></div>
-                        <div class="hval" style="margin-left:auto"><b>1.2846</b><small class="up">年化 +4.85%</small></div>
-                      </div>
-                      <div class="swipe">
-                        <span class="swipe-act">移出<br>关注</span>
-                        <div class="hrow">
-                          <div class="hmain"><div class="hname">全球科技 <span class="pill r">R4</span></div><small class="hmeta">最新净值 · 10-25</small></div>
-                          <div class="hval" style="margin-left:auto"><b>2.1034</b><small class="up">年化 +8.20%</small></div>
-                        </div>
                       </div>
                     </div>
 
@@ -1722,10 +1873,11 @@ html[data-theme="dark"] .cta.ghost{background:var(--white)}
               <figcaption class="cap">
                 <div class="cap-head"><span class="n">07</span><h4>理财</h4><code>/wealth</code></div>
                 <ol class="notes">
-                  <li><span class="k">01</span><span><b>先宏观后个人</b>总资产 → 趋势 → 持仓/自选；产品列表降级到 /wealth/holdings。</span></li>
-                  <li><span class="k">02</span><span><b>十字准线</b>长按图表出现竖线与当日浮层，UIImpactFeedbackGenerator(.light)；reduced-motion 下退化为静态。</span></li>
-                  <li><span class="k">03</span><span><b>涨红跌绿</b>中国惯例；金额 tabular-nums 千分位，大金额整数/小数两级字号。</span></li>
-                  <li><span class="k">04</span><span><b>左滑移出关注</b>铜色 88pt action，滑动后需轻触确认，不直接删除数据。</span></li>
+                  <li><span class="k">01</span><span><b>上下两段 · 图一 + 图二</b>上半（自选页）：总资产 + 眼睛开关、分类 tab、产品行、板块 chips；下半（持仓页）：分区资产卡 6 指标、铜色趋势图、快捷操作、我的持仓。</span></li>
+                  <li><span class="k">02</span><span><b>面板横滑联动</b>列表左右横滑时 tab 指示条跟随位移，松手吸附最近 tab；缓动 cubic-bezier(.2,.7,.2,1) 0.35s。</span></li>
+                  <li><span class="k">03</span><span><b>角标收纳</b>板块收起为一枚「板块 · 8 ▸」胶囊，点击展开两排 chips（0.3s 高度动画）；「我的持仓 (2)」分组头保留条数与总盈亏摘要。</span></li>
+                  <li><span class="k">04</span><span><b>涨红跌绿</b>中国惯例；涨跌胶囊为角标样式，金额 tabular-nums 千分位，大金额整数/小数两级字号。</span></li>
+                  <li><span class="k">05</span><span><b>金额隐私</b>眼睛图标切换后全页金额统一变 ****，0.2s 淡变；按压所有可点行 scale(.97) 回弹。</span></li>
                 </ol>
               </figcaption>
             </figure>
@@ -2239,6 +2391,101 @@ html[data-theme="dark"] .cta.ghost{background:var(--white)}
     });
   }
   if(!toggle) return;
+})();
+
+/* ---------- v4 理财页交互：板块收纳 / 金额隐私 / tab 联动 ---------- */
+(function(){
+  // 1. 板块 chips 收纳与展开
+  Array.prototype.forEach.call(document.querySelectorAll('.sectbar'), function(bar){
+    var box = bar.nextElementSibling;
+    if(!box || !box.classList.contains('chipsbox')) return;
+    var cv = bar.querySelector('.cv');
+    bar.setAttribute('role','button');
+    bar.setAttribute('tabindex','0');
+    bar.setAttribute('aria-expanded','false');
+    function setOpen(open){
+      bar.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if(cv) cv.textContent = open ? '▾' : '▸';
+      if(open){
+        box.classList.add('open');
+        box.style.height = box.scrollHeight + 'px';
+        box.style.opacity = '1';
+      }else{
+        box.style.height = box.scrollHeight + 'px';
+        requestAnimationFrame(function(){ box.style.height = '0px'; box.style.opacity = '0'; });
+        box.classList.remove('open');
+      }
+    }
+    bar.addEventListener('click', function(){ setOpen(bar.getAttribute('aria-expanded') !== 'true'); });
+    bar.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); bar.click(); }
+    });
+  });
+
+  // 2. 金额隐私：眼睛图标切换全页 ****
+  Array.prototype.forEach.call(document.querySelectorAll('.eyebtn'), function(btn){
+    btn.setAttribute('role','button');
+    btn.setAttribute('tabindex','0');
+    btn.setAttribute('aria-label','切换金额显示');
+    btn.addEventListener('click', function(){
+      var screen = btn.closest('.screen');
+      if(!screen) return;
+      var hidden = screen.classList.toggle('masked');
+      btn.setAttribute('aria-pressed', hidden ? 'true' : 'false');
+      Array.prototype.forEach.call(screen.querySelectorAll('.wbig,.wamt,.wpl b,.agrid b,.pchg small,.hval b,.hval small,.pmeta2'), function(el){
+        if(el.dataset.orig === undefined) el.dataset.orig = el.textContent;
+        el.textContent = hidden ? '****' : el.dataset.orig;
+      });
+    });
+  });
+
+  // 3. 分类 tab 指示条与面板横滑联动
+  Array.prototype.forEach.call(document.querySelectorAll('.wtabs'), function(tabs){
+    var ind = tabs.querySelector('.ind');
+    var items = Array.prototype.slice.call(tabs.querySelectorAll('.tb'));
+    if(!ind || !items.length) return;
+    var panels = null, p = tabs.nextElementSibling;
+    while(p && !panels){ if(p.classList && p.classList.contains('panels')) panels = p; p = p.nextElementSibling; }
+    var active = Math.max(0, items.findIndex(function(t){ return t.classList.contains('on'); }));
+
+    function place(i, animate){
+      var t = items[i]; if(!t) return;
+      if(!animate) ind.style.transition = 'none';
+      ind.style.width = t.offsetWidth + 'px';
+      ind.style.transform = 'translateX(' + (t.offsetLeft - items[0].offsetLeft) + 'px)';
+      if(!animate) requestAnimationFrame(function(){ ind.style.transition = ''; });
+    }
+    function setActive(i){
+      active = i;
+      items.forEach(function(t, n){ t.classList.toggle('on', n === i); });
+      place(i, true);
+    }
+    items.forEach(function(t, i){ t.addEventListener('click', function(){ setActive(i); if(panels) panels.scrollTo({left: panels.clientWidth * i, behavior:'smooth'}); }); });
+    if(panels){
+      panels.addEventListener('scroll', function(){
+        var w = panels.clientWidth || 1;
+        var prog = panels.scrollLeft / w;
+        var base = items[0].offsetLeft;
+        var i0 = Math.max(0, Math.min(items.length - 1, Math.floor(prog)));
+        var i1 = Math.min(items.length - 1, i0 + 1);
+        var f = Math.max(0, Math.min(1, prog - i0));
+        var t0 = items[i0], t1 = items[i1];
+        ind.style.transition = 'none';
+        ind.style.width = (t0.offsetWidth + (t1.offsetWidth - t0.offsetWidth) * f) + 'px';
+        ind.style.transform = 'translateX(' + ((t0.offsetLeft - base) + ((t1.offsetLeft - t0.offsetLeft) * f)) + 'px)';
+      }, {passive:true});
+      var settle;
+      panels.addEventListener('scroll', function(){
+        clearTimeout(settle);
+        settle = setTimeout(function(){
+          var i = Math.round(panels.scrollLeft / (panels.clientWidth || 1));
+          setActive(Math.max(0, Math.min(items.length - 1, i)));
+        }, 90);
+      }, {passive:true});
+    }
+    place(active, false);
+    window.addEventListener('resize', function(){ place(active, false); });
+  });
 })();
 </script>
 </body>
